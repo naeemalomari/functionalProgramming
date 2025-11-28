@@ -6,15 +6,17 @@ import java.util.function.Consumer;
 public class _Consumer {
     public static void main(String[] args) {
 
-        Customer naeem = new Customer("Naeem", "962799025272");
-        //  normal java function
-        greetCustomer(naeem);
-        //this is using functional interface
-        greetCustomerConsumer.accept(naeem);
+//        Customer naeem = new Customer("Naeem", "962799025272");
+//        //  normal java function
+//        greetCustomer(naeem);
+//        //this is using functional interface
+//        greetCustomerConsumer.accept(naeem);
+//
+//        greetCustomerConsumerV2.accept(naeem, false);
+//        greetCustomerConsumerV2.accept(naeem, true);
 
-        greetCustomerConsumerV2.accept(naeem, false);
-        greetCustomerConsumerV2.accept(naeem, true);
-
+        warningSms.accept(5.45);
+        warningSmsWithCurrency.accept(10.44, "JOD");
     }
 
     static BiConsumer<Customer, Boolean> greetCustomerConsumerV2 =
@@ -41,7 +43,12 @@ public class _Consumer {
         }
     }
 
+    static Consumer<Double> warningSms = deductedAmount
+            -> System.out.println("Thank you for using bla bla we have deduct " + deductedAmount + " USD from your balance");
 
+
+    static BiConsumer<Double, String> warningSmsWithCurrency = (deductedAmount, currency)
+            -> System.out.println("Thank you for using bla bla we have deduct " + deductedAmount + " " + currency + " from your balance");
 
 }
 
