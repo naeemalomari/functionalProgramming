@@ -29,6 +29,18 @@ public class _Function {
 
         int incrementByOneAndMultiply = incrementByOneAndMultiplyBiFunction.apply(4, 100);
         System.out.println(incrementByOneAndMultiply);
+
+
+        // TODO: revision
+        int calculateStringWithMethodReferenceq = calculateStringWithMethodReference.apply("Naeem omari");
+        int calculateStringq = calculateString.apply("Aya omari");
+
+        System.out.println(calculateStringq + " aya");
+        System.out.println(calculateStringWithMethodReferenceq + " naeem");
+
+        int calculateWITHMethodReferenceBiFunctionMain = calculateWITHMethodReferenceBiFunction.apply("naeem omari", "aya omari");
+
+        System.out.println(calculateWITHMethodReferenceBiFunctionMain + " sum ");
     }
 
 
@@ -50,5 +62,12 @@ public class _Function {
         return (number + 1) * numToMultiplyBy;
     }
 
+
+    static Function<String, Integer> calculateStringWithMethodReference = String::length;
+    static Function<String, Integer> calculateString = name -> name.length();
+
+
+    static BiFunction<String, String, Integer> calculateWITHMethodReferenceBiFunction = (name1, name2)
+            -> name1.length() + name2.length();
 
 }
